@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.hero {
+  background: url(./assets/hero-bg.png) center no-repeat;
+  background-size: cover;
+  height: fit-content;
+}
+
+.toggle-btn {
+  padding: 7px 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+  background: linear-gradient(180deg, #9315ff 0%, #8803fe 71.85%);
+  color: white;
+  border-radius: 1000px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.box {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide default radio */
+input[type="radio"] {
+  display: none;
+}
+
+/* Custom radio button */
+input[type="radio"] + label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Radio outer circle */
+input[type="radio"] + label::before {
+  content: "";
+  width: 22px; /* Increased size for outer circle */
+  height: 22px;
+  border: 2px solid #7502db; /* Border color */
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  transition: border 0.3s ease-in-out;
+}
+
+/* Radio center dot (checked state) */
+input[type="radio"]:checked + label::before {
+  background-color: #7502db; /* Center color */
+  border-color: #7502db; /* Border color when active */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Center dot effect */
+input[type="radio"]:checked + label::after {
+  content: "";
+  width: 10px; /* Reduce size for gap */
+  height: 10px;
+  background-color: white; /* Change center dot color */
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) {
+  .hero {
+    height: fit-content;
+  }
+  .toggle-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
