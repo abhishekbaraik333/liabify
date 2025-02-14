@@ -77,6 +77,28 @@ input[type="radio"]:checked + label::after {
   transform: translate(-50%, -50%);
 }
 
+.tilted-background {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  padding-left: 0;
+  z-index: 1;
+  color: #3A0077;
+}
+
+.tilted-background::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: -5px;
+  width: 100%;
+  height: 100%;
+  background-color: #dfceff; /* Light purple background */
+  transform: rotate(-1deg);
+  z-index: -1;
+  padding: 10px 15px; /* Expands the skewed background */
+}
+
 @media (max-width: 767px) {
   .hero {
     height: fit-content;
@@ -84,5 +106,8 @@ input[type="radio"]:checked + label::after {
   .toggle-btn {
     padding: 5px 10px;
     font-size: 14px;
+  }
+  .tilted-background::before{
+    padding: 5px 10px;
   }
 }
