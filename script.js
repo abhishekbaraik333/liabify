@@ -23,3 +23,29 @@ document.addEventListener("DOMContentLoaded", () => {
     monthlyBtn2.addEventListener("click", toggleActive2);
     yearlyBtn2.addEventListener("click", toggleActive2);
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".change-btn");
+    const contentDivs = document.querySelectorAll(".content-div");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Remove "active" class from all buttons and hide all divs
+            buttons.forEach(btn => btn.classList.remove("active"));
+            contentDivs.forEach(div => div.classList.remove("active"));
+
+            // Add "active" class to the clicked button
+            button.classList.add("active");
+
+            // Show the corresponding div
+            const targetDiv = document.getElementById(button.getAttribute("data-target"));
+            if (targetDiv) {
+                targetDiv.classList.add("active");
+            }
+        });
+    });
+
+    // Set the first div as active by default
+    buttons[0].classList.add("active");
+    contentDivs[0].classList.add("active");
+});
+

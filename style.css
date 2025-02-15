@@ -99,6 +99,33 @@ input[type="radio"]:checked + label::after {
   padding: 10px 15px; /* Expands the skewed background */
 }
 
+.change-btn.active{
+  background-color: #B074FF;
+  padding: 10px 20px;
+  border-radius: 1000px;
+}
+
+.change-btn{
+  background-color: transparent;
+  border: 1px solid #B074FF;
+  padding: 10px 20px;
+  border-radius: 1000px;
+  min-width: 100px;
+  width: 200px;
+  transition: all 0.3s;
+}
+
+.content-div{
+  transition: all 0.3s;
+  display: none; /* Hide all divs initially */
+
+}
+
+.content-div.active {
+  display: flex; /* Show active div */
+}
+
+
 @media (max-width: 767px) {
   .hero {
     height: fit-content;
@@ -109,5 +136,8 @@ input[type="radio"]:checked + label::after {
   }
   .tilted-background::before{
     padding: 5px 10px;
+  }
+  .change-btn{
+    width: fit-content;
   }
 }
