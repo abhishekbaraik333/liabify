@@ -83,7 +83,7 @@ input[type="radio"]:checked + label::after {
   padding: 10px 20px;
   padding-left: 0;
   z-index: 1;
-  color: #3A0077;
+  color: #3a0077;
 }
 
 .tilted-background::before {
@@ -99,15 +99,15 @@ input[type="radio"]:checked + label::after {
   padding: 10px 15px; /* Expands the skewed background */
 }
 
-.change-btn.active{
-  background-color: #B074FF;
+.change-btn.active {
+  background-color: #b074ff;
   padding: 10px 20px;
   border-radius: 1000px;
 }
 
-.change-btn{
+.change-btn {
   background-color: transparent;
-  border: 1px solid #B074FF;
+  border: 1px solid #b074ff;
   padding: 10px 20px;
   border-radius: 1000px;
   min-width: 100px;
@@ -115,16 +115,35 @@ input[type="radio"]:checked + label::after {
   transition: all 0.3s;
 }
 
-.content-div{
+.content-div {
   transition: all 0.3s;
   display: none; /* Hide all divs initially */
-
 }
 
 .content-div.active {
   display: flex; /* Show active div */
 }
 
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.input-group label {
+  color: #3a0077;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
+}
+.input-group input,select {
+  background-color: white;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #eee5ff;
+}
 
 @media (max-width: 767px) {
   .hero {
@@ -134,10 +153,10 @@ input[type="radio"]:checked + label::after {
     padding: 5px 10px;
     font-size: 14px;
   }
-  .tilted-background::before{
+  .tilted-background::before {
     padding: 5px 10px;
   }
-  .change-btn{
+  .change-btn {
     width: fit-content;
   }
 }
