@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+*{
+  font-family: "Inter", serif;
+}
+
 body,
 html {
   height: 100%;
