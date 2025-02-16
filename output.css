@@ -854,6 +854,9 @@
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
+  .w-\[180px\] {
+    width: 180px;
+  }
   .w-fit {
     width: fit-content;
   }
@@ -1400,6 +1403,9 @@
   }
   .rounded-md {
     border-radius: var(--radius-md);
+  }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
   }
   .rounded-xl {
     border-radius: var(--radius-xl);
@@ -2705,6 +2711,7 @@ input[type="radio"]:checked + label::after {
   border-radius: 1000px;
 }
 .change-btn {
+  cursor: pointer;
   background-color: transparent;
   border: 1px solid #b074ff;
   padding: 10px 20px;

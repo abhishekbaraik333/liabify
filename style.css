@@ -111,6 +111,7 @@ input[type="radio"]:checked + label::after {
 }
 
 .change-btn {
+  cursor: pointer;
   background-color: transparent;
   border: 1px solid #b074ff;
   padding: 10px 20px;
