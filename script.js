@@ -49,3 +49,28 @@ document.addEventListener("DOMContentLoaded", () => {
     contentDivs[0].classList.add("active");
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const formContainer = document.getElementById("formContainer");
+    const salaryForm = document.getElementById("salaryForm");
+    const resultContainer = document.getElementById("resultContainer");
+    const basicSalaryInput = document.getElementById("basicSalary");
+    const salaryAdvanceSpan = document.getElementById("salaryAdvance");
+
+    // Function to calculate salary advance
+    function calculateAdvance() {
+        const basicSalary = parseFloat(basicSalaryInput.value) || 0;
+        salaryAdvanceSpan.textContent = (basicSalary * 0.4).toFixed(2);
+    }
+
+    // Handle form submission
+    salaryForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent actual form submission
+        salaryForm.classList.add("hidden"); // Hide form
+        resultContainer.classList.remove("hidden"); // Show result container
+        calculateAdvance(); // Calculate initial salary advance
+    });
+
+    // Update salary advance when basic salary is changed
+    basicSalaryInput.addEventListener("input", calculateAdvance);
+});
