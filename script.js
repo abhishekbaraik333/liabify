@@ -63,13 +63,13 @@ document.addEventListener("DOMContentLoaded", () => {
         salaryAdvanceSpan.textContent = (basicSalary * 0.4).toFixed(2);
     }
 
-    // Handle form submission
-    salaryForm.addEventListener("submit", (e) => {
-        e.preventDefault(); // Prevent actual form submission
-        salaryForm.classList.add("hidden"); // Hide form
-        resultContainer.classList.remove("hidden"); // Show result container
-        calculateAdvance(); // Calculate initial salary advance
-    });
+    // // Handle form submission
+    // salaryForm.addEventListener("submit", (e) => {
+    //     e.preventDefault(); // Prevent actual form submission
+    //     salaryForm.classList.add("hidden"); // Hide form
+    //     resultContainer.classList.remove("hidden"); // Show result container
+    //     calculateAdvance(); // Calculate initial salary advance
+    // });
 
     // Update salary advance when basic salary is changed
     basicSalaryInput.addEventListener("input", calculateAdvance);
