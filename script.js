@@ -50,28 +50,37 @@ document.addEventListener("DOMContentLoaded", () => {
   buttons[0].classList.add("active");
   contentDivs[0].classList.add("active");
 });
+document.getElementById("calculate").addEventListener("click", function () {
+  const basicSalary = parseFloat(document.getElementById("basicSalary").value);
+  const repaymentMonths = parseInt(document.getElementById("repay").value);
+  const loanAmountSpan = document.getElementById("loan-amount");
+  const serviceChargeSpan = document.getElementById("service-charge");
+  const totalAmountSpan = document.getElementById("total-amount");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const basicSalaryInput = document.getElementById("basicSalary");
-  const salaryAdvanceSpan = document.getElementById("salaryAdvance");
-  const percentage = document.getElementById("percentage");
+  if (isNaN(basicSalary) || basicSalary <= 0) {
+    alert("Please enter a valid basic salary.");
+    return;
+  }
 
-  // Function to calculate salary advance
-  function calculateAdvance() {
-    const basicSalary = parseFloat(basicSalaryInput.value) || 0;
-    if(basicSalary <= 5000){
-        salaryAdvanceSpan.textContent = (basicSalary * 0.4 + (basicSalary * 0.0325)).toFixed(2);
-        percentage.innerText = "(40%)"
-    }
-    if(basicSalary > 5000 && basicSalary <= 10000 ){
-        salaryAdvanceSpan.textContent = (basicSalary * 0.75 + (basicSalary * 0.0325)).toFixed(2);
-        percentage.innerText = "(75%)"
-    }
-    if(basicSalary > 10000){
-        salaryAdvanceSpan.textContent = (basicSalary * 0.5 + (basicSalary * 0.0325)).toFixed(2);
-        percentage.innerText = "(50%)"
-    }
- }
-  // Update salary advance when basic salary is changed
-  basicSalaryInput.addEventListener("input", calculateAdvance);
+  // Calculate Loan Amount (60% of Basic Salary)
+  const loanAmount = basicSalary * 0.6;
+
+  // Calculate Service Charge based on repayment months
+  let serviceChargePercentage = 0;
+  if (repaymentMonths === 1) {
+    serviceChargePercentage = 1;
+  } else if (repaymentMonths === 2) {
+    serviceChargePercentage = 2;
+  } else if (repaymentMonths >= 3) {
+    serviceChargePercentage = 3;
+  }
+
+  const serviceCharge = (basicSalary * serviceChargePercentage) / 100;
+
+  // Calculate Total Amount Payable
+  const totalAmount = loanAmount + serviceCharge;
+
+  // Update UI
+  serviceChargeSpan.textContent = serviceCharge.toFixed(2);
+  loanAmountSpan.textContent = totalAmount.toFixed(2);
 });
